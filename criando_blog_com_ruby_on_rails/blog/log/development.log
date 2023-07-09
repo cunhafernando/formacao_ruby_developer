@@ -1,0 +1,277 @@
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-07-09 16:19:12.044222"], ["updated_at", "2023-07-09 16:19:12.044222"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLivros (20230709162031)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "livros" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "titulo" varchar, "autor" varchar, "nota" integer, "descricao" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230709162031"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2023-07-09 13:21:33 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LivrosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering livros/index.html.erb within layouts/application
+  [1m[36mLivro Load (5.3ms)[0m  [1m[34mSELECT "livros".* FROM "livros"[0m
+  ↳ app/views/livros/index.html.erb:6
+  Rendered livros/index.html.erb within layouts/application (Duration: 64.5ms | Allocations: 5322)
+  Rendered layout layouts/application.html.erb (Duration: 728.5ms | Allocations: 110201)
+Completed 200 OK in 825ms (Views: 757.5ms | ActiveRecord: 5.3ms | Allocations: 117679)
+
+
+Started GET "/livros/new" for ::1 at 2023-07-09 13:21:36 -0300
+Processing by LivrosController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering livros/new.html.erb within layouts/application
+  Rendered livros/_form.html.erb (Duration: 20.3ms | Allocations: 3594)
+  Rendered livros/new.html.erb within layouts/application (Duration: 23.2ms | Allocations: 3949)
+  Rendered layout layouts/application.html.erb (Duration: 29.8ms | Allocations: 6982)
+Completed 200 OK in 48ms (Views: 30.6ms | ActiveRecord: 1.5ms | Allocations: 12719)
+
+
+Started POST "/livros" for ::1 at 2023-07-09 13:21:49 -0300
+Processing by LivrosController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "livro"=>{"titulo"=>"Dom casmurro", "autor"=>"Machado de Assis", "nota"=>"8", "descricao"=>" Dom Casmurro é um romance escrito por Machado de Assis, publicado em 1899 pela Livraria Garnier. Escrito para publicação em livro, o que ocorreu em 1900"}, "commit"=>"Create Livro"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/livros_controller.rb:27:in `block in create'
+  [1m[36mLivro Create (0.9ms)[0m  [1m[32mINSERT INTO "livros" ("titulo", "autor", "nota", "descricao", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["titulo", "Dom casmurro"], ["autor", "Machado de Assis"], ["nota", 8], ["descricao", " Dom Casmurro é um romance escrito por Machado de Assis, publicado em 1899 pela Livraria Garnier. Escrito para publicação em livro, o que ocorreu em 1900"], ["created_at", "2023-07-09 16:21:49.479117"], ["updated_at", "2023-07-09 16:21:49.479117"]]
+  ↳ app/controllers/livros_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (1109.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/livros_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/livros/1
+Completed 302 Found in 1124ms (ActiveRecord: 1109.9ms | Allocations: 3808)
+
+
+Started GET "/livros/1" for ::1 at 2023-07-09 13:21:50 -0300
+Processing by LivrosController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mLivro Load (0.7ms)[0m  [1m[34mSELECT "livros".* FROM "livros" WHERE "livros"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/livros_controller.rb:63:in `set_livro'
+  Rendering layout layouts/application.html.erb
+  Rendering livros/show.html.erb within layouts/application
+  Rendered livros/_livro.html.erb (Duration: 0.8ms | Allocations: 276)
+  Rendered livros/show.html.erb within layouts/application (Duration: 361.2ms | Allocations: 1629)
+  Rendered layout layouts/application.html.erb (Duration: 367.7ms | Allocations: 4642)
+Completed 200 OK in 379ms (Views: 368.5ms | ActiveRecord: 0.7ms | Allocations: 7465)
+
+
+Started GET "/livros" for ::1 at 2023-07-09 13:21:52 -0300
+Processing by LivrosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering livros/index.html.erb within layouts/application
+  [1m[36mLivro Load (0.3ms)[0m  [1m[34mSELECT "livros".* FROM "livros"[0m
+  ↳ app/views/livros/index.html.erb:6
+  Rendered livros/_livro.html.erb (Duration: 0.2ms | Allocations: 24)
+  Rendered livros/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1012)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 3917)
+Completed 200 OK in 16ms (Views: 12.2ms | ActiveRecord: 0.3ms | Allocations: 4237)
+
+
+Started GET "/livros/new" for ::1 at 2023-07-09 13:21:54 -0300
+Processing by LivrosController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering livros/new.html.erb within layouts/application
+  Rendered livros/_form.html.erb (Duration: 3.3ms | Allocations: 1454)
+  Rendered livros/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1542)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 4458)
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.0ms | Allocations: 4753)
+
+
+Started POST "/livros" for ::1 at 2023-07-09 13:22:06 -0300
+Processing by LivrosController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "livro"=>{"titulo"=>"Capitaes d'areia", "autor"=>"Jorge Amado", "nota"=>"10", "descricao"=>"Capitães da Areia é um romance de autoria do escritor brasileiro Jorge Amado, escrito em 1937. A obra retrata a vida de um grupo de menores abandonados, que crescem nas ruas da cidade de Salvador, Bahia, vivendo em um trapiche, roubando para sobre"}, "commit"=>"Create Livro"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/livros_controller.rb:27:in `block in create'
+  [1m[36mLivro Create (0.9ms)[0m  [1m[32mINSERT INTO "livros" ("titulo", "autor", "nota", "descricao", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["titulo", "Capitaes d'areia"], ["autor", "Jorge Amado"], ["nota", 10], ["descricao", "Capitães da Areia é um romance de autoria do escritor brasileiro Jorge Amado, escrito em 1937. A obra retrata a vida de um grupo de menores abandonados, que crescem nas ruas da cidade de Salvador, Bahia, vivendo em um trapiche, roubando para sobre"], ["created_at", "2023-07-09 16:22:06.212980"], ["updated_at", "2023-07-09 16:22:06.212980"]]
+  ↳ app/controllers/livros_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/livros_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/livros/2
+Completed 302 Found in 12ms (ActiveRecord: 2.3ms | Allocations: 2350)
+
+
+Started GET "/livros/2" for ::1 at 2023-07-09 13:22:06 -0300
+Processing by LivrosController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mLivro Load (0.1ms)[0m  [1m[34mSELECT "livros".* FROM "livros" WHERE "livros"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/livros_controller.rb:63:in `set_livro'
+  Rendering layout layouts/application.html.erb
+  Rendering livros/show.html.erb within layouts/application
+  Rendered livros/_livro.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered livros/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 568)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 3466)
+Completed 200 OK in 11ms (Views: 8.7ms | ActiveRecord: 0.1ms | Allocations: 4216)
+
+
+Started GET "/livros" for ::1 at 2023-07-09 13:22:07 -0300
+Processing by LivrosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering livros/index.html.erb within layouts/application
+  [1m[36mLivro Load (0.2ms)[0m  [1m[34mSELECT "livros".* FROM "livros"[0m
+  ↳ app/views/livros/index.html.erb:6
+  Rendered livros/_livro.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered livros/_livro.html.erb (Duration: 0.2ms | Allocations: 24)
+  Rendered livros/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 1033)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 3936)
+Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 0.2ms | Allocations: 4211)
+
+
+Started GET "/livros/new" for ::1 at 2023-07-09 13:22:10 -0300
+Processing by LivrosController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering livros/new.html.erb within layouts/application
+  Rendered livros/_form.html.erb (Duration: 3.3ms | Allocations: 1398)
+  Rendered livros/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1485)
+  Rendered layout layouts/application.html.erb (Duration: 20.7ms | Allocations: 4393)
+Completed 200 OK in 23ms (Views: 21.6ms | ActiveRecord: 0.0ms | Allocations: 4672)
+
+
+Started POST "/livros" for ::1 at 2023-07-09 13:22:20 -0300
+Processing by LivrosController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "livro"=>{"titulo"=>"operacao cavalo de troia", "autor"=>"jj benitz", "nota"=>"10", "descricao"=>"Operação Cavalo de Tróia é uma série literária, composta por nove livros e escrita pelo espanhol J. J. Benítez. O primeiro volume foi lançado em 1984 pela Editorial Planeta, de Barcelona, enquanto o último volume, o de n° 9, foi lançado em 2011, t"}, "commit"=>"Create Livro"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/livros_controller.rb:27:in `block in create'
+  [1m[36mLivro Create (1.6ms)[0m  [1m[32mINSERT INTO "livros" ("titulo", "autor", "nota", "descricao", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["titulo", "operacao cavalo de troia"], ["autor", "jj benitz"], ["nota", 10], ["descricao", "Operação Cavalo de Tróia é uma série literária, composta por nove livros e escrita pelo espanhol J. J. Benítez. O primeiro volume foi lançado em 1984 pela Editorial Planeta, de Barcelona, enquanto o último volume, o de n° 9, foi lançado em 2011, t"], ["created_at", "2023-07-09 16:22:20.859259"], ["updated_at", "2023-07-09 16:22:20.859259"]]
+  ↳ app/controllers/livros_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (12.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/livros_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/livros/3
+Completed 302 Found in 26ms (ActiveRecord: 14.5ms | Allocations: 2236)
+
+
+Started GET "/livros/3" for ::1 at 2023-07-09 13:22:20 -0300
+Processing by LivrosController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mLivro Load (0.2ms)[0m  [1m[34mSELECT "livros".* FROM "livros" WHERE "livros"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/livros_controller.rb:63:in `set_livro'
+  Rendering layout layouts/application.html.erb
+  Rendering livros/show.html.erb within layouts/application
+  Rendered livros/_livro.html.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered livros/show.html.erb within layouts/application (Duration: 8.1ms | Allocations: 580)
+  Rendered layout layouts/application.html.erb (Duration: 18.7ms | Allocations: 3477)
+Completed 200 OK in 25ms (Views: 21.5ms | ActiveRecord: 0.2ms | Allocations: 4217)
+
+
+Started GET "/livros" for ::1 at 2023-07-09 13:22:22 -0300
+Processing by LivrosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering livros/index.html.erb within layouts/application
+  [1m[36mLivro Load (0.2ms)[0m  [1m[34mSELECT "livros".* FROM "livros"[0m
+  ↳ app/views/livros/index.html.erb:6
+  Rendered livros/_livro.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered livros/_livro.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered livros/_livro.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered livros/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1175)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 4080)
+Completed 200 OK in 16ms (Views: 10.9ms | ActiveRecord: 0.2ms | Allocations: 4355)
+
+
+Started GET "/livros/new" for ::1 at 2023-07-09 13:22:25 -0300
+Processing by LivrosController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering livros/new.html.erb within layouts/application
+  Rendered livros/_form.html.erb (Duration: 3.2ms | Allocations: 1386)
+  Rendered livros/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1473)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 4378)
+Completed 200 OK in 13ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 4658)
+
+
+Started POST "/livros" for ::1 at 2023-07-09 13:22:35 -0300
+Processing by LivrosController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "livro"=>{"titulo"=>"operacao cavalo de troia 2", "autor"=>"jj benitz", "nota"=>"9", "descricao"=>"Operação Cavalo de Tróia é uma série literária, composta por nove livros e escrita pelo espanhol J. J. Benítez. O primeiro volume foi lançado em 1984 pela Editorial Planeta, de Barcelona, enquanto o último volume, o de n° 9, foi lançado em 2011, t"}, "commit"=>"Create Livro"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/livros_controller.rb:27:in `block in create'
+  [1m[36mLivro Create (0.9ms)[0m  [1m[32mINSERT INTO "livros" ("titulo", "autor", "nota", "descricao", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["titulo", "operacao cavalo de troia 2"], ["autor", "jj benitz"], ["nota", 9], ["descricao", "Operação Cavalo de Tróia é uma série literária, composta por nove livros e escrita pelo espanhol J. J. Benítez. O primeiro volume foi lançado em 1984 pela Editorial Planeta, de Barcelona, enquanto o último volume, o de n° 9, foi lançado em 2011, t"], ["created_at", "2023-07-09 16:22:35.793342"], ["updated_at", "2023-07-09 16:22:35.793342"]]
+  ↳ app/controllers/livros_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/livros_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/livros/4
+Completed 302 Found in 13ms (ActiveRecord: 2.1ms | Allocations: 2236)
+
+
+Started GET "/livros/4" for ::1 at 2023-07-09 13:22:35 -0300
+Processing by LivrosController#show as TURBO_STREAM
+  Parameters: {"id"=>"4"}
+  [1m[36mLivro Load (0.1ms)[0m  [1m[34mSELECT "livros".* FROM "livros" WHERE "livros"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/livros_controller.rb:63:in `set_livro'
+  Rendering layout layouts/application.html.erb
+  Rendering livros/show.html.erb within layouts/application
+  Rendered livros/_livro.html.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered livros/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 565)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 3462)
+Completed 200 OK in 11ms (Views: 8.8ms | ActiveRecord: 0.1ms | Allocations: 4202)
+
+
+Started GET "/livros" for ::1 at 2023-07-09 13:22:37 -0300
+Processing by LivrosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering livros/index.html.erb within layouts/application
+  [1m[36mLivro Load (0.3ms)[0m  [1m[34mSELECT "livros".* FROM "livros"[0m
+  ↳ app/views/livros/index.html.erb:6
+  Rendered livros/_livro.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered livros/_livro.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered livros/_livro.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered livros/_livro.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered livros/index.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1307)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 4223)
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 0.3ms | Allocations: 4500)
+
+
+Started GET "/livros/new" for ::1 at 2023-07-09 13:22:40 -0300
+Processing by LivrosController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering livros/new.html.erb within layouts/application
+  Rendered livros/_form.html.erb (Duration: 5.8ms | Allocations: 1389)
+  Rendered livros/new.html.erb within layouts/application (Duration: 6.2ms | Allocations: 1476)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 4378)
+Completed 200 OK in 16ms (Views: 14.5ms | ActiveRecord: 0.0ms | Allocations: 4657)
+
+
+Started POST "/livros" for ::1 at 2023-07-09 13:22:51 -0300
+Processing by LivrosController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "livro"=>{"titulo"=>"operacao cavalo de troia 3", "autor"=>"jj benitz", "nota"=>"8", "descricao"=>"Operação Cavalo de Tróia é uma série literária, composta por nove livros e escrita pelo espanhol J. J. Benítez. O primeiro volume foi lançado em 1984 pela Editorial Planeta, de Barcelona, enquanto o último volume, o de n° 9, foi lançado em 2011, t"}, "commit"=>"Create Livro"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/livros_controller.rb:27:in `block in create'
+  [1m[36mLivro Create (0.8ms)[0m  [1m[32mINSERT INTO "livros" ("titulo", "autor", "nota", "descricao", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["titulo", "operacao cavalo de troia 3"], ["autor", "jj benitz"], ["nota", 8], ["descricao", "Operação Cavalo de Tróia é uma série literária, composta por nove livros e escrita pelo espanhol J. J. Benítez. O primeiro volume foi lançado em 1984 pela Editorial Planeta, de Barcelona, enquanto o último volume, o de n° 9, foi lançado em 2011, t"], ["created_at", "2023-07-09 16:22:51.085390"], ["updated_at", "2023-07-09 16:22:51.085390"]]
+  ↳ app/controllers/livros_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/livros_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/livros/5
+Completed 302 Found in 15ms (ActiveRecord: 3.3ms | Allocations: 2239)
+
+
+Started GET "/livros/5" for ::1 at 2023-07-09 13:22:51 -0300
+Processing by LivrosController#show as TURBO_STREAM
+  Parameters: {"id"=>"5"}
+  [1m[36mLivro Load (0.2ms)[0m  [1m[34mSELECT "livros".* FROM "livros" WHERE "livros"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/livros_controller.rb:63:in `set_livro'
+  Rendering layout layouts/application.html.erb
+  Rendering livros/show.html.erb within layouts/application
+  Rendered livros/_livro.html.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered livros/show.html.erb within layouts/application (Duration: 5.4ms | Allocations: 574)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 3472)
+Completed 200 OK in 15ms (Views: 11.3ms | ActiveRecord: 0.2ms | Allocations: 4212)
+
+
+Started GET "/livros" for ::1 at 2023-07-09 13:22:52 -0300
+Processing by LivrosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering livros/index.html.erb within layouts/application
+  [1m[36mLivro Load (0.2ms)[0m  [1m[34mSELECT "livros".* FROM "livros"[0m
+  ↳ app/views/livros/index.html.erb:6
+  Rendered livros/_livro.html.erb (Duration: 0.2ms | Allocations: 24)
+  Rendered livros/_livro.html.erb (Duration: 0.2ms | Allocations: 24)
+  Rendered livros/_livro.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered livros/_livro.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered livros/_livro.html.erb (Duration: 0.4ms | Allocations: 25)
+  Rendered livros/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 1435)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 4343)
+Completed 200 OK in 18ms (Views: 15.2ms | ActiveRecord: 0.2ms | Allocations: 4618)
+
+
